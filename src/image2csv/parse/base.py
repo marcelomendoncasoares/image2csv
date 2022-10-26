@@ -84,14 +84,17 @@ class BaseParser(metaclass=ABCMeta):
             raise EmptyResults("No results after image conversion.")
         return parsed_text
 
-    def to_df(self) -> pd.DataFrame:
+    def to_df(self, drop_duplicates: bool = False) -> pd.DataFrame:
         """
         Convert the text from the images to a pandas DataFrame.
         """
-        return pd.DataFrame(self.parsed_text)
+        df = pd.DataFrame(self.parsed_text)
+        if drop_duplicates:
+            df.drop_duplicates(inplace=True)
+        return df
 
-    def to_csv(self, output_path: str) -> None:
+    def to_csv(self, output_path: str, drop_duplicates: bool = False) -> None:
         """
         Save the parsed text from the images to a CSV file.
         """
-        self.to_df().to_csv(output_path, index=False)
+        self.to_df(drop_duplicates).to_csv(output_path, index=False)
