@@ -1,0 +1,177 @@
+{
+    "must_match": [
+        "date",
+        "value"
+    ],
+    "partial_match": [
+        "description"
+    ],
+    "replacements": {
+        "<today>": "datetime.now().strftime('%d/%m/%Y')",
+        "<yesterday>": "(datetime.now() - timedelta(days=1)).strftime('%d/%m/%Y')"
+    },
+    "expected_results": [
+        {
+            "description": "Bacio Di Latte Rio De Janeir Bra",
+            "date": "<today>",
+            "value": "21.50",
+            "hour": "18:12"
+        },
+        {
+            "description": "Bacio Di Latte Rio De Janeir Bra",
+            "date": "<today>",
+            "value": "32.40",
+            "hour": "17:52"
+        },
+        {
+            "description": "Ifd*faroeste Burger Co Rio De Janeir",
+            "date": "<yesterday>",
+            "value": "75.02",
+            "hour": "20:59"
+        },
+        {
+            "description": "Zona Sul FI 42 Rio De Janeir Bra",
+            "date": "<yesterday>",
+            "value": "62.95",
+            "hour": "15:45"
+        },
+        {
+            "description": "Ifood *ifood Sao Paulo Bra",
+            "date": "<yesterday>",
+            "value": "43.80",
+            "hour": "12:09"
+        },
+        {
+            "description": "Ifood *ifood Sao Paulo Bra",
+            "date": "13/10/2022",
+            "value": "79.80",
+            "hour": "12:51"
+        },
+        {
+            "description": "Uber * Pending Sao Paulo Bra",
+            "date": "11/10/2022",
+            "value": "97.49",
+            "hour": "07:19"
+        },
+        {
+            "description": "Caravela Do Visconde Rio De Janeirbr",
+            "date": "09/10/2022",
+            "value": "63.25",
+            "hour": "12:39"
+        },
+        {
+            "description": "Harad Rio De Janeir Bra",
+            "date": "08/10/2022",
+            "value": "132.94",
+            "hour": "17:43"
+        },
+        {
+            "description": "Mobilidade (R$ 415,00)",
+            "date": "29/09/2022",
+            "value": "415.00",
+            "hour": "19:42"
+        },
+        {
+            "description": "Casas Pedro Botafogo 2 Rio De Jane",
+            "date": "17/09/2022",
+            "value": "23.75",
+            "hour": "18:01"
+        },
+        {
+            "description": "Zona Sul FI 42 Rio De Janeir Bra",
+            "date": "17/09/2022",
+            "value": "81.95",
+            "hour": "17:52"
+        },
+        {
+            "description": "Sorvetes Nevalle Niteroi Bra",
+            "date": "17/09/2022",
+            "value": "10.64",
+            "hour": "15:37"
+        },
+        {
+            "description": "Sorvetes Nevalle Niteroi Bra",
+            "date": "17/09/2022",
+            "value": "13.72",
+            "hour": "15:34"
+        },
+        {
+            "description": "Sorvetes Nevalle Niteroi Bra",
+            "date": "17/09/2022",
+            "value": "24.78",
+            "hour": "15:19"
+        },
+        {
+            "description": "Seven Grill Restaurant Niteroi Bra",
+            "date": "17/09/2022",
+            "value": "190.90",
+            "hour": "15:07"
+        },
+        {
+            "description": "Modelo Rio De Janeir Bra",
+            "date": "17/09/2022",
+            "value": "101.80",
+            "hour": "11:54"
+        },
+        {
+            "description": "Alergolife Tijuca Rio De Janeir Bra",
+            "date": "17/09/2022",
+            "value": "100.00",
+            "hour": "10:16"
+        },
+        {
+            "description": "Ifood *ifood Sao Paulo Bra",
+            "date": "07/10/2022",
+            "value": "40.90",
+            "hour": "20:21"
+        },
+        {
+            "description": "Posto Esso Rio De Janeirbr",
+            "date": "06/10/2022",
+            "value": "179.78",
+            "hour": "22:20"
+        },
+        {
+            "description": "Coffe Bis Rio De Janeir Bra",
+            "date": "05/10/2022",
+            "value": "27.51",
+            "hour": "13:49"
+        },
+        {
+            "description": "Pag*ledepanneur Rio De Janeir Bra",
+            "date": "02/10/2022",
+            "value": "60.48",
+            "hour": "17:20"
+        },
+        {
+            "description": "Ifood *ifood Sao Paulo Bra",
+            "date": "01/10/2022",
+            "value": "54.89",
+            "hour": "19:20"
+        },
+        {
+            "description": "Casas Pedro Botafogo 2 Rio De Jane",
+            "date": "01/10/2022",
+            "value": "1.73",
+            "hour": "10:59"
+        },
+        {
+            "description": "Zona Sul FI 42 Rio De Janeir Bra",
+            "date": "01/10/2022",
+            "value": "81.56",
+            "hour": "10:56"
+        },
+        {
+            "description": "Zona Sul FI 42 Rio De Janeir Bra",
+            "date": "01/10/2022",
+            "value": "81.94",
+            "hour": "07:39"
+        },
+        {
+            "description": "Multibenefício (R$ 2.050,00)",
+            "date": "29/09/2022",
+            "value": "2050.00",
+            "hour": "19:43"
+        }
+    ]
+}
