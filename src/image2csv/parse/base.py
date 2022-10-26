@@ -13,6 +13,12 @@ from image2csv.extract import OCRExtractor
 from image2csv.format import BaseLinesFormatter, BasicLinesFormatter
 
 
+class EmptyResults(Exception):
+    """
+    Exception raised when the parser returns no results.
+    """
+
+
 class BaseParser(metaclass=ABCMeta):
     """
     Base class for image parsers. Can be extended for specific parsers based on rules of
@@ -73,7 +79,10 @@ class BaseParser(metaclass=ABCMeta):
         """
         Parsed text from the images.
         """
-        return self.parse_text_lines(self.input_text)
+        parsed_text = self.parse_text_lines(self.input_text)
+        if len(parsed_text) == 0:
+            raise EmptyResults("No results after image conversion.")
+        return parsed_text
 
     def to_df(self) -> pd.DataFrame:
         """
