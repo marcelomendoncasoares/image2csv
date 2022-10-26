@@ -6,7 +6,7 @@ import re
 import warnings
 
 from datetime import datetime, timedelta
-from typing import List, TypedDict
+from typing import List, TypedDict, Union
 
 from image2csv.format import BasicLinesFormatter
 from image2csv.parse.base import BaseParser
@@ -32,7 +32,7 @@ class FlashBenefitsParser(BaseParser):
     Class to parse bank statement prints from `Flash Benefits` company.
     """
 
-    def __init__(self, images_path: str) -> None:
+    def __init__(self, images_path: Union[str, List[str]]) -> None:
         """
         Initialize the parser.
 

@@ -7,7 +7,7 @@ import pandas as pd
 from abc import ABCMeta
 from functools import lru_cache
 from itertools import chain as flatten
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Union
 
 from image2csv.extract import OCRExtractor
 from image2csv.format import BaseLinesFormatter, BasicLinesFormatter
@@ -21,7 +21,7 @@ class BaseParser(metaclass=ABCMeta):
 
     def __init__(
         self,
-        images_path: str,
+        images_path: Union[str, List[str]],
         *,
         extractor: OCRExtractor = OCRExtractor(),
         formatter: BaseLinesFormatter = BasicLinesFormatter(),

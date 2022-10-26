@@ -109,7 +109,7 @@ class OCRExtractor:
             The extracted text, if path is a file, or list with extracted texts.
         """
 
-        if isinstance(path_or_paths, list):
+        if isinstance(path_or_paths, (list, tuple)):
             return list(flatten(*[self.extract(path) for path in path_or_paths]))
 
         path_obj = Path(path_or_paths)
