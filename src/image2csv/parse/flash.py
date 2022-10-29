@@ -87,4 +87,11 @@ class FlashBenefitsParser(BaseParser):
             entry["description"] = " ".join(entry["description"].split(" ")[1:]).strip()
             entry["description"] = re.compile("\s+").sub(" ", entry["description"])
 
+        parsed_text = sorted(
+            parsed_text,
+            key=lambda entry: (
+                datetime.strptime(entry["date"], "%d/%m/%Y"), entry["hour"] or ""
+            ),
+        )
+
         return [FlashEntry(**entry) for entry in parsed_text]
