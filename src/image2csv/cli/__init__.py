@@ -67,6 +67,14 @@ def parser_options(command_func: Callable) -> Callable:
     prompt=False,
     help="The parser engine to extract data from the image to save as CSV.",
 )
+@click.option(
+    "--separator",
+    "--sep",
+    "-s",
+    type=str,
+    default=",",
+    help="The separator to use in the resulting CSV file.",
+)
 @parser_options
 @click.argument('input_path', nargs=-1, required=True)
 def convert(
@@ -75,6 +83,7 @@ def convert(
     output_path: str,
     drop_duplicates: bool = False,
     parser: str,
+    separator: str = ",",
     **kwargs
 ) -> None:
     """
@@ -104,7 +113,11 @@ def convert(
     click.secho(f"Found {len(parser_obj.images)} images to convert...")
 
     try:
-        parser_obj.to_csv(output_path, drop_duplicates=drop_duplicates)
+        parser_obj.to_csv(
+            output_path,
+            drop_duplicates=drop_duplicates,
+            separator=separator,
+        )
     except EmptyResults as exc:
         click.secho(str(exc), fg="red")
 

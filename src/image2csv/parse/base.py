@@ -5,6 +5,7 @@ Classes to extract, format and parse the text from images into CSV tables.
 import pandas as pd
 
 from abc import ABCMeta
+from csv import QUOTE_NONNUMERIC
 from functools import lru_cache
 from itertools import chain as flatten
 from typing import Any, Dict, List, Union
@@ -93,8 +94,19 @@ class BaseParser(metaclass=ABCMeta):
             df.drop_duplicates(inplace=True)
         return df
 
-    def to_csv(self, output_path: str, drop_duplicates: bool = False) -> None:
+    def to_csv(
+        self,
+        output_path: str,
+        drop_duplicates: bool = False,
+        separator: str = ",",
+    ) -> None:
         """
         Save the parsed text from the images to a CSV file.
         """
-        self.to_df(drop_duplicates).to_csv(output_path, index=False)
+        self.to_df(drop_duplicates).to_csv(
+            output_path,
+            index=False,
+            sep=separator,
+            quotechar='"',
+            quoting=QUOTE_NONNUMERIC,
+        )
