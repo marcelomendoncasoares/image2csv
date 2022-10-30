@@ -72,7 +72,7 @@ def parser_options(command_func: Callable) -> Callable:
     "--sep",
     "-s",
     type=str,
-    default=",",
+    default=";",
     help="The separator to use in the resulting CSV file.",
 )
 @click.option(
@@ -90,7 +90,7 @@ def convert(
     output_path: str,
     drop_duplicates: bool = False,
     parser: str,
-    separator: str = ",",
+    separator: str = ";",
     encoding: str = "latin1",
     **kwargs
 ) -> None:
