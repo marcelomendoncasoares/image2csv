@@ -75,6 +75,13 @@ def parser_options(command_func: Callable) -> Callable:
     default=",",
     help="The separator to use in the resulting CSV file.",
 )
+@click.option(
+    "--encoding",
+    "-e",
+    type=str,
+    default="latin1",
+    help="The encoding to use when saving the CSV file.",
+)
 @parser_options
 @click.argument('input_path', nargs=-1, required=True)
 def convert(
@@ -84,6 +91,7 @@ def convert(
     drop_duplicates: bool = False,
     parser: str,
     separator: str = ",",
+    encoding: str = "latin1",
     **kwargs
 ) -> None:
     """
@@ -117,6 +125,7 @@ def convert(
             output_path,
             drop_duplicates=drop_duplicates,
             separator=separator,
+            encoding=encoding,
         )
     except EmptyResults as exc:
         click.secho(str(exc), fg="red")

@@ -99,6 +99,7 @@ class BaseParser(metaclass=ABCMeta):
         output_path: str,
         drop_duplicates: bool = False,
         separator: str = ",",
+        encoding: str = "utf-8",
     ) -> None:
         """
         Save the parsed text from the images to a CSV file.
@@ -109,4 +110,5 @@ class BaseParser(metaclass=ABCMeta):
             sep=separator,
             quotechar='"',
             quoting=QUOTE_NONNUMERIC,
+            encoding=encoding,
         )
